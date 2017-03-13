@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="Template.xhtml">
+	<ui:define name="header">
+	</ui:define>
+	<ui:define name="editar">
+		<br />
+		<br />
+		<h:form>
+			<p:fieldset legend="Cadena de busqueda">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="buscar" />
+					<p:inputText value="#{operacionBean.cadenaBusqueda}" />
+				</h:panelGrid>
+			</p:fieldset>
+			<p:fieldset legend="Buscar por los siguintes items">
+				<h:panelGrid columns="3">
+					<p:selectManyCheckbox id="basic"
+						value="#{operacionBean.selectedConsoles}">
+						<f:selectItem itemLabel="Autor" itemValue="autor" />
+						<f:selectItem itemLabel="Titulo" itemValue="titulo" />
+						<f:selectItem itemLabel="ID" itemValue="id" />
+					</p:selectManyCheckbox>
+
+					<f:facet name="footer">
+						<p:commandButton value="buscar"
+							action="#{operacionBean.consultar()}" ajax="false" />
+					</f:facet>
+				</h:panelGrid>
+			</p:fieldset>
+		</h:form>
+		<br />
+
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:dataTable id="users" value="#{operacionBean.libros}" var="libro"
+				style="margin-bottom:20px">
+				<f:facet name="header">
+           tabla de datos
+            </f:facet>
+            
+				<p:column headerText="Autor">
+					<h:outputText value="#{libro.autor}"></h:outputText>
+				</p:column>
+				
+				<p:column headerText="Titulo">
+					<h:outputText value="#{libro.nombre}"></h:outputText>
+				</p:column>
+
+				<p:column headerText="ISBN">
+					<h:outputText value="#{libro.isbn}"></h:outputText>
+				</p:column>
+				
+				
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+	<ui:define name="footer">
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,9 @@
+co/edu/uniquindio/entidades/Libro.class
+co/edu/uniquindio/beans/LoginBean.class
+co/edu/uniquindio/beans/OperacionBean.class
+co/edu/uniquindio/entidades/Usuario.class
+co/edu/uniquindio/entidades/Compra.class
+co/edu/uniquindio/entidades/Resena.class
+co/edu/uniquindio/entidades/Compra_x_Libro.class
+co/edu/uniquindio/negocio/NegocioEJB.class
+co/edu/uniquindio/beans/PlantillaController.class
